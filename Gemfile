@@ -36,4 +36,7 @@ gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 # do not have a Java counterpart.
 gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
-gem "webrick", "~> 1.8"
+# If ruby version is more than 3.0.0, use webrick 1.8.x
+if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('3.0.0')
+  gem "webrick", "~> 1.8"
+end
